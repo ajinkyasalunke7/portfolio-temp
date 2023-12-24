@@ -7,6 +7,9 @@
     box-sizing: border-box;
     color: #fff;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 /* header css */
 #header {
@@ -370,4 +373,87 @@ form .btnDownload {
 
 .copyright i {
     color: #ff004f;
+}
+
+/* --------Media Querries-------- */
+nav .close,
+nav .menu {
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    #header {
+        background-image: url("./images/phoneBg.jpeg");
+    }
+    .header-text {
+        margin-top: 100%;
+        font-size: 16px;
+    }
+    .header-text h1 {
+        font-size: 30px;
+    }
+    .header-text p {
+        font-size: 18px;
+    }
+    nav .close,
+    nav .menu {
+        display: block;
+        font-size: 35px;
+    }
+
+    nav ul {
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 70px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 35px;
+    }
+    nav ul .close,
+    nav ul .menu {
+        top: 30px;
+        left: 35px;
+        cursor: pointer;
+        position: absolute;
+    }
+    .subtitle {
+        font-size: 40px;
+    }
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+    .about-col-1 {
+        margin-bottom: 30px;
+    }
+    .about-col-2 {
+        font-size: 14px;
+    }
+    .tab-links {
+        font-size: 18px;
+        margin-right: 30px;
+    }
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+    }
+    .copyright {
+        font-size: 14px;
+    }
+    .btn {
+        display: block;
+        margin: 50px auto;
+        width: fit-content;
+        border: 1px solid #ff004f;
+        padding: 10px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #fff;
+    }
 }

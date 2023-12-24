@@ -39,6 +39,14 @@ export default function Portfolio() {
             openTab(tabLink.getAttribute("data-tab"));
         });
     });
+
+    const side_menu = document.getElementById("side_menu");
+    const closeMenu = () => {
+        side_menu.style.right = "-200px";
+    };
+    const openMenu = () => {
+        side_menu.style.right = "0";
+    };
     return (
         <div>
             {/* --------------header section--------- */}
@@ -51,23 +59,31 @@ export default function Portfolio() {
                             draggable="false"
                             alt="Logo"
                         />
-                        <ul>
+                        <ul id="side_menu">
                             <li>
-                                <a href="#">Home</a>
+                                <a href="#header">Home</a>
                             </li>
                             <li>
-                                <a href="#"> About</a>
+                                <a href="#about"> About</a>
                             </li>
                             <li>
-                                <a href="#"> Services</a>
+                                <a href="#services"> Services</a>
                             </li>
                             <li>
-                                <a href="#"> Portfolio</a>
+                                <a href="#portfolio"> Portfolio</a>
                             </li>
                             <li>
-                                <a href="#"> Contact</a>
+                                <a href="#contact"> Contact</a>
                             </li>
+                            <i
+                                className="fa-solid fa-xmark close"
+                                onClick={(e) => closeMenu(e)}
+                            ></i>
                         </ul>
+                        <i
+                            className="fa-solid fa-bars menu"
+                            onClick={(e) => openMenu(e)}
+                        ></i>
                     </nav>
                     <div className="header-text">
                         <p>UI/UX Desginer</p>
