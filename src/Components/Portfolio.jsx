@@ -2,6 +2,9 @@
 import "./Portfolio.css";
 import logo from "./images/logo.png";
 import user from "./images/user.png";
+import work_1 from "./images/work-1.png";
+import work_2 from "./images/work-2.png";
+import work_3 from "./images/work-3.png";
 
 export default function Portfolio() {
     const openTab = (tabName, event) => {
@@ -215,6 +218,60 @@ export default function Portfolio() {
                             <a href="#">Learn More</a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* --------------Portfolio Section----------- */}
+            <div id="portfolio">
+                <div className="container">
+                    <h1 className="subtitle">My Work</h1>
+                    <div className="work-list">
+                        <div className="work">
+                            <img src={work_1} alt="" />
+                            <div className="layer">
+                                <h3>Social Media App</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Repellendus, inventore.
+                                </p>
+                                <a href="#">
+                                    {/* <i className="fa-solid fa-link"></i> */}
+                                    <i className="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="work">
+                            <img src={work_2} alt="" />
+                            <div className="layer">
+                                <h3>Music App</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Repellendus, inventore.
+                                </p>
+                                <a href="#">
+                                    {/* <i className="fa-solid fa-link"></i> */}
+                                    <i className="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="work">
+                            <img src={work_3} alt="" />
+                            <div className="layer">
+                                <h3>eCommerce Web App</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Repellendus, inventore.
+                                </p>
+                                <a href="#">
+                                    {/* <i className="fa-solid fa-link"></i> */}
+                                    <i className="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" className="btn">
+                        See More
+                    </a>
                 </div>
             </div>
         </div>
