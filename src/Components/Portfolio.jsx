@@ -5,6 +5,7 @@ import user from "./images/user.png";
 import work_1 from "./images/work-1.png";
 import work_2 from "./images/work-2.png";
 import work_3 from "./images/work-3.png";
+import cv from "./images/my-cv.pdf";
 
 export default function Portfolio() {
     const openTab = (tabName, event) => {
@@ -272,6 +273,82 @@ export default function Portfolio() {
                     <a href="#" className="btn">
                         See More
                     </a>
+                </div>
+            </div>
+
+            {/* --------------Contact Section----------- */}
+
+            <div id="contact">
+                <div className="container">
+                    <div className="row">
+                        <div className="contact-left">
+                            <h1 className="subtitle">Contact Me</h1>
+                            <p>
+                                <i className="fa-solid fa-paper-plane"></i>
+                                contact#gmail.com
+                            </p>
+                            <p>
+                                <i className="fa-solid fa-phone-square"></i>
+                                <span id="code">+91&nbsp;</span>6979969559
+                            </p>
+                            <div className="social-icons">
+                                <a href="#">
+                                    <i className="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i className="fa-brands fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i className="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i className="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="#">
+                                    <i className="fa-brands fa-twitter"></i>
+                                </a>
+                            </div>
+                            <a href={cv} className="btn btnDownload" download>
+                                Download CV
+                            </a>
+                        </div>
+                        <div className="contact-right">
+                            <form action="">
+                                <input
+                                    type="text"
+                                    name="Name"
+                                    id="Name"
+                                    placeholder="Your fullname"
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="Email"
+                                    id="Email"
+                                    placeholder="Your Email"
+                                    required
+                                />
+                                <textarea
+                                    name="Message"
+                                    id="Message"
+                                    rows="6"
+                                    placeholder="Your Message"
+                                ></textarea>
+                                <input
+                                    type="submit"
+                                    className="btn btnDownload"
+                                    value="Submit"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="copyright">
+                    <p>
+                        Copyright © Ajinkya.&nbsp; Made with&nbsp;
+                        <i className="fa-solid fa-heart"></i>&nbsp;by Ajinkya
+                        Salunke
+                    </p>
                 </div>
             </div>
         </div>
