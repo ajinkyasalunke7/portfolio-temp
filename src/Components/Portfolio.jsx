@@ -181,6 +181,42 @@ export default function Portfolio() {
                     </div>
                 </div>
             </div>
+
+            {/* --------------Services Section----------- */}
+            <div id="services">
+                <div className="container">
+                    <h1 className="subtitle">My Services</h1>
+                    <div className="services-list">
+                        <div>
+                            <i className="fa-solid fa-code"></i>
+                            <h2>Web Design</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Esse, aperiam.
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                        <div>
+                            <i className="fa-brands fa-figma"></i>
+                            <h2>UI/UX Design</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Esse, aperiam.
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                        <div>
+                            <i className="fa-brands fa-app-store"></i>
+                            <h2>App Development</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Esse, aperiam.
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
