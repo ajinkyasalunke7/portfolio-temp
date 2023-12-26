@@ -52,6 +52,16 @@ export default function Portfolio() {
         setIsMenuOpen(false);
         document.getElementById("side_menu").style.right = "-200px";
     };
+    const handleMenuItemClick = (header) => {
+        if (header === "header") {
+            // Check for the specific header value and trigger vibration
+            if (navigator.vibrate) {
+                navigator.vibrate(100);
+            }
+        }
+        navigator.vibrate(100);
+        closeMenu(); // Close the menu when any menu item is clicked
+    };
 
     // const side_menu = document.getElementById("side_menu");
     // const closeMenu = () => {
@@ -86,6 +96,7 @@ export default function Portfolio() {
                 fetch(scriptURL, { method: "POST", body: new FormData(form) })
                     .then((response) => {
                         wait_msg.innerHTML = "";
+
                         msg.innerHTML = "Message Sent Successfully";
                         spinner.style.display = "none";
                         setTimeout(function () {
@@ -119,19 +130,43 @@ export default function Portfolio() {
                         />
                         <ul id="side_menu" className={isMenuOpen ? "open" : ""}>
                             <li>
-                                <a href="#header">Home</a>
+                                <a
+                                    href="#header"
+                                    onClick={() =>
+                                        handleMenuItemClick("header")
+                                    }
+                                >
+                                    Home
+                                </a>
                             </li>
                             <li>
-                                <a href="#about"> About</a>
+                                <a href="#about" onClick={handleMenuItemClick}>
+                                    About
+                                </a>
                             </li>
                             <li>
-                                <a href="#services"> Services</a>
+                                <a
+                                    href="#services"
+                                    onClick={handleMenuItemClick}
+                                >
+                                    Services
+                                </a>
                             </li>
                             <li>
-                                <a href="#portfolio"> Portfolio</a>
+                                <a
+                                    href="#portfolio"
+                                    onClick={handleMenuItemClick}
+                                >
+                                    Portfolio
+                                </a>
                             </li>
                             <li>
-                                <a href="#contact"> Contact</a>
+                                <a
+                                    href="#contact"
+                                    onClick={handleMenuItemClick}
+                                >
+                                    Contact
+                                </a>
                             </li>
                             <i
                                 className="fa-solid fa-xmark close"
@@ -425,8 +460,11 @@ export default function Portfolio() {
                 <div className="copyright">
                     <p>
                         Copyright © Ajinkya.&nbsp; Made with&nbsp;
-                        <i className="fa-solid fa-heart"></i>&nbsp;by Ajinkya
-                        Salunke
+                        <i
+                            className="fa-solid fa-heart fa-bounce"
+                            id="dHeart"
+                        ></i>
+                        &nbsp;by Ajinkya Salunke
                     </p>
                 </div>
             </div>
