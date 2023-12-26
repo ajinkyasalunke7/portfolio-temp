@@ -90,6 +90,8 @@ export default function Portfolio() {
                 document.getElementById("Email").readOnly = true;
                 document.getElementById("Message").readOnly = true;
                 document.getElementById("cus").readOnly = true;
+                document.getElementById("dis").display = "block";
+
                 wait_msg.innerHTML = "Please wait...";
                 spinner.style.display = "block";
                 e.preventDefault();
@@ -451,9 +453,11 @@ export default function Portfolio() {
                                     onClick={submitForm}
                                 />
                             </form>
-                            <span id="wait-msg"></span>
-                            <span id="msg"></span>
-                            <span className="spinner" id="spinner"></span>
+                            <div id="dis">
+                                <span id="wait-msg"></span>
+                                <span id="msg"></span>
+                                <span className="spinner" id="spinner"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
