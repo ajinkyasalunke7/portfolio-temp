@@ -401,6 +401,12 @@ form .btnDownload {
 .copyright i {
     color: #ff004f;
 }
+.copyright p {
+    display: inline-block;
+}
+#heart {
+    display: none;
+}
 
 /* ----span---- */
 
