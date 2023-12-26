@@ -76,6 +76,10 @@ export default function Portfolio() {
 
             form.addEventListener("submit", (e) => {
                 // form.style.display = "none";
+                document.getElementById("Name").readOnly = true;
+                document.getElementById("Email").readOnly = true;
+                document.getElementById("Message").readOnly = true;
+                document.getElementById("cus").readOnly = true;
                 wait_msg.innerHTML = "Please wait...";
                 spinner.style.display = "block";
                 e.preventDefault();
@@ -88,6 +92,10 @@ export default function Portfolio() {
                             msg.innerHTML = "";
                         }, 3000);
                         form.reset();
+                        document.getElementById("Name").readOnly = false;
+                        document.getElementById("Email").readOnly = false;
+                        document.getElementById("Message").readOnly = false;
+                        document.getElementById("cus").readOnly = false;
                         // console.log("Success!", response);
                     })
                     .catch((error) => console.error("Error!", error.message));
@@ -403,6 +411,7 @@ export default function Portfolio() {
                                 <input
                                     type="submit"
                                     className="btn btnDownload"
+                                    id="cus"
                                     value="Submit"
                                     onClick={submitForm}
                                 />
