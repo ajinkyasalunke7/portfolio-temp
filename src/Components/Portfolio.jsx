@@ -6,6 +6,7 @@ import work_1 from "./images/work-1.png";
 import work_2 from "./images/work-2.png";
 import work_3 from "./images/work-3.png";
 import cv from "./images/my-cv.pdf";
+import { useState } from "react";
 
 export default function Portfolio() {
     const openTab = (tabName, event) => {
@@ -40,13 +41,62 @@ export default function Portfolio() {
         });
     });
 
-    const side_menu = document.getElementById("side_menu");
-    const closeMenu = () => {
-        side_menu.style.right = "-200px";
-    };
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const openMenu = () => {
-        side_menu.style.right = "0";
+        setIsMenuOpen(true);
+        document.getElementById("side_menu").style.right = "0";
     };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+        document.getElementById("side_menu").style.right = "-200px";
+    };
+
+    // const side_menu = document.getElementById("side_menu");
+    // const closeMenu = () => {
+    //     side_menu.style.right = "-200px";
+    // };
+    // const openMenu = () => {
+    //     console.log("Heelo");
+    //     side_menu.style.right = "0";
+    // };
+
+    function submitForm() {
+        const wait_msg = document.getElementById("wait-msg");
+        const msg = document.getElementById("msg");
+        const spinner = document.getElementById("spinner");
+        // const form = document.getElementById("form");
+        const url =
+            "https://script.google.com/macros/s/AKfycbw8EmE9F1GhRhkWBlOtiZ_tzF7XDvgUqdYbEPEl-KizjjJUbwxIPRfWhmmvO0dgP9U/exec";
+
+        try {
+            const scriptURL = url;
+            const form = document.forms["submit-to-google-sheet"];
+
+            form.addEventListener("submit", (e) => {
+                // form.style.display = "none";
+                wait_msg.innerHTML = "Please wait...";
+                spinner.style.display = "block";
+                e.preventDefault();
+                fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                    .then((response) => {
+                        wait_msg.innerHTML = "";
+                        msg.innerHTML = "Message Sent Successfully";
+                        spinner.style.display = "none";
+                        setTimeout(function () {
+                            msg.innerHTML = "";
+                        }, 3000);
+                        form.reset();
+                        // console.log("Success!", response);
+                    })
+                    .catch((error) => console.error("Error!", error.message));
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     return (
         <div>
             {/* --------------header section--------- */}
@@ -59,7 +109,7 @@ export default function Portfolio() {
                             draggable="false"
                             alt="Logo"
                         />
-                        <ul id="side_menu">
+                        <ul id="side_menu" className={isMenuOpen ? "open" : ""}>
                             <li>
                                 <a href="#header">Home</a>
                             </li>
@@ -328,13 +378,13 @@ export default function Portfolio() {
                                 Download CV
                             </a>
                         </div>
-                        <div className="contact-right">
-                            <form action="">
+                        <div className="contact-right" id="form">
+                            <form id="frm" name="submit-to-google-sheet">
                                 <input
                                     type="text"
                                     name="Name"
                                     id="Name"
-                                    placeholder="Your fullname"
+                                    placeholder="Your Fullname"
                                     required
                                 />
                                 <input
@@ -354,8 +404,12 @@ export default function Portfolio() {
                                     type="submit"
                                     className="btn btnDownload"
                                     value="Submit"
+                                    onClick={submitForm}
                                 />
                             </form>
+                            <span id="wait-msg"></span>
+                            <span id="msg"></span>
+                            <span className="spinner" id="spinner"></span>
                         </div>
                     </div>
                 </div>
